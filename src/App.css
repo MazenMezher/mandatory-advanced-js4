@@ -7,6 +7,7 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  
 }
 .white{
   color: white;
@@ -16,7 +17,9 @@ table{
   display: flex;
   justify-content: center;
   border-collapse: collapse;
+
 }
+
 
 .button, .message, .gameTitle{
   display: flex;
@@ -28,37 +31,21 @@ table{
   font-style: italic;
 }
 
-.green {
+.red {
   height: 60px;
   width: 60px;
-  background-color: green;
+  background-color: red;
   border-radius: 100px;
-  transition: background-color 0.5s;
+  transition: background-color 1s;
 }
 
-.blue {
+.yellow {
   height: 60px;
   width: 60px;
-  background-color: blue;
+  background-color: yellow;
   border-radius: 100px;
-  transition: background-color 0.5s;
+  transition: background-color 1s;
 }
-
-.circle {
-  height: 15px;
-  width: 15px;
-  border: 1px solid #000;
-  border-radius: 100px;
-}
-
-.circles {
-  margin: -40px 0 25px 0;
-  display: flex;
-  justify-content: center;
-}
-
-
-
 
 
 .title1 {

@@ -11,11 +11,11 @@ class Game extends Component {
         activePlayer: null,
         board: [],
         gameOver: false,
-        testMessage: ''
+        textMessage: "",
         };
         
         // Bind play function to App component
-        this.playerTurn = this.playerTurn.bind(this);
+        this.play = this.play.bind(this);
     }
     
     // refreshes the slots of the game board
@@ -30,6 +30,8 @@ class Game extends Component {
         this.setState({
         board,
         activePlayer: this.state.player1,
+        gameOver: false,
+        textMessage: "Player 1 (Yellow) starts",
         });
     }
     
@@ -37,16 +39,22 @@ class Game extends Component {
         const { activePlayer, player1, player2 } = this.state
 
         if(activePlayer === player1){
+            this.setState({
+                textMessage: "Player 2 (Red) is playing"
+            })
             return (
                 player2
+                
             )
         } else {
+            this.setState({
+                textMessage: "Player 1 (Yellow) is playing"
+            })
             return (
                 player1 
             )
         }
     }
-    
     
     
     checkVertical(board) {
@@ -124,23 +132,22 @@ class Game extends Component {
         return this.checkVertical(board) || this.checkDiagonalRight(board) || this.checkDiagonalLeft(board) || this.checkHorizontal(board) || this.checkDraw(board);
     }
     
-    playerTurn(c) {
-        const { activePlayer, player1, player2, gameOver} = this.state
-        if (!gameOver) {
+    play(c) {
+        if (!this.state.gameOver) {
         // Create a game pieace onto the board
         let board = this.state.board;
         for (let r = 5; r >= 0; r--) {
             if (!board[r][c]) {
-            board[r][c] = activePlayer;
+            board[r][c] = this.state.activePlayer;
             break;
             }
         }
         // Check status on the game board
         let result = this.checkVictory(board);
-        if (result === player1) {
-            this.setState({ board, gameOver: true, textMessage: "Player 1 is victorious!" });
-        } else if (result === player2) {
-            this.setState({ board, gameOver: true, textMessage: "Player 2 is victorious!" });
+        if (result === this.state.player1) {
+            this.setState({ board, gameOver: true, textMessage: "Player 1 (Red) is victorious!" });
+        } else if (result === this.state.player2) {
+            this.setState({ board, gameOver: true, textMessage: "Player 2 (Yellow) is victorious!" });
         } else if (result === 'draw') {
             this.setState({ board, gameOver: true, textMessage: "Noone won its a draw click New game to play again." });
         } else {
@@ -168,7 +175,7 @@ class Game extends Component {
             <thead>
             </thead>
             <tbody>
-                {this.state.board.map((row, i) => (<Square key={i} row={row} playerTurn={this.playerTurn} />))}
+                {this.state.board.map((row, i) => (<Square key={i} row={row} play={this.play} />))}
                 
             </tbody>
             </table>
@@ -178,26 +185,26 @@ class Game extends Component {
     }
 }
 
-const Square = ({ row, playerTurn }) => {
+const Square = ({ row, play }) => {
     return (
         <tr>
-        {row.map((cell, i) => <Cell key={i} value={cell} columnIndex={i} playerTurn={playerTurn} />)}
+        {row.map((cell, i) => <Cell key={i} value={cell} columnIndex={i} play={play} />)}
         </tr>
     );
     };
     
-    const Cell = ({ value, columnIndex, playerTurn }) => {  
+    const Cell = ({ value, columnIndex, play }) => {  
     let color = 'white';
     if (value === 1) {
-        color = 'blue';
+        color = 'yellow';
     } else if (value === 2) {
-        color = 'green';
+        color = 'red';
     }
         
     return (
         <>
         <td>
-        <div className="cell" onClick={() => {playerTurn(columnIndex)}}>
+        <div className="cell" onClick={() => {play(columnIndex)}}>
             <div className={color}></div>
         </div>
         </td>
