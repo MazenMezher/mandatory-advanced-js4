@@ -147,7 +147,7 @@ class Game extends Component {
             }
         }
 
-        if(!ifFull){
+        if(ifFull){
             return;
         }
 
@@ -166,19 +166,17 @@ class Game extends Component {
         this.setState({ textMessage: "Game over. Please click New game to play again." });
         }
     }
-
+    //runs the exakt same function as new game button on first render
     componentWillMount() {
         this.cleanBoard();
     }
     
     render() {
         return (
-        <div>            
+        <div className={"bigBackground"}>            
             <div className={"gameTitle"}>
                 <h1 className={"title1"}>Connect-</h1><h1 className={"title2"}>Four</h1><h1 className={"title3"}>-Game</h1>
             </div>
-            
-            
                 <p className="message">{this.state.textMessage}</p>
             <table>
             <thead>
@@ -189,12 +187,13 @@ class Game extends Component {
             </tbody>
             </table>
             <div className="button" onClick={() => {this.cleanBoard()}}>New Game</div>
+    
         </div>
         );
     }
 }
 
-const Square = ({ row, play }) => {
+const Square = ({ row, play}) => {
     return (
         <tr>
         {row.map((cell, i) => <Cell key={i} value={cell} columnIndex={i} play={play} />)}
@@ -202,12 +201,12 @@ const Square = ({ row, play }) => {
     );
     };
     
-    const Cell = ({ value, columnIndex, play }) => {  
-    let color = 'white';
+    const Cell = ({ value, columnIndex, play}) => { 
+    let color = 'whiteCircle';
     if (value === 1) {
-        color = 'yellow';
+        color = 'yellowCircle';
     } else if (value === 2) {
-        color = 'red';
+        color = 'redCircle';
     }
         
     return (
