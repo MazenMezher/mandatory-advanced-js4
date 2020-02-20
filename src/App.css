@@ -8,22 +8,35 @@
   align-items: center;
   cursor: pointer;
   
+  
 }
 .white{
   color: white;
+  
 }
 
 table{
   display: flex;
   justify-content: center;
   border-collapse: collapse;
-
+  
 }
 
+td {
+  border: none;
+}
 
 .button, .message, .gameTitle{
   display: flex;
   justify-content: center;
+}
+
+.button:hover {
+  cursor: pointer;
+}
+
+.button {
+  text-decoration: underline green;
 }
 
 .gameTitle {

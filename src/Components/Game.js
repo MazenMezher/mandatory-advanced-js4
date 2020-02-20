@@ -136,18 +136,27 @@ class Game extends Component {
         if (!this.state.gameOver) {
         // Create a game pieace onto the board
         let board = this.state.board;
+
+        let ifFull = true;
+
         for (let r = 5; r >= 0; r--) {
             if (!board[r][c]) {
             board[r][c] = this.state.activePlayer;
+            ifFull = false;
             break;
             }
         }
+
+        if(!ifFull){
+            return;
+        }
+
         // Check status on the game board
         let result = this.checkVictory(board);
         if (result === this.state.player1) {
-            this.setState({ board, gameOver: true, textMessage: "Player 1 (Red) is victorious!" });
+            this.setState({ board, gameOver: true, textMessage: "Player 1 (Yellow) is victorious!" });
         } else if (result === this.state.player2) {
-            this.setState({ board, gameOver: true, textMessage: "Player 2 (Yellow) is victorious!" });
+            this.setState({ board, gameOver: true, textMessage: "Player 2 (Red) is victorious!" });
         } else if (result === 'draw') {
             this.setState({ board, gameOver: true, textMessage: "Noone won its a draw click New game to play again." });
         } else {
