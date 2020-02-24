@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 
-
-class Game extends Component {
+    class Game extends Component {
     constructor(props) {
         super(props);
         
@@ -31,7 +30,7 @@ class Game extends Component {
         board,
         activePlayer: this.state.player1,
         gameOver: false,
-        textMessage: "Player 1 (Yellow) starts",
+        textMessage: "Player 1 starts",
         });
     }
     
@@ -40,15 +39,14 @@ class Game extends Component {
 
         if(activePlayer === player1){
             this.setState({
-                textMessage: "Player 2 (Red) is playing"
+                textMessage: "Player 2 is playing"
             })
             return (
                 player2
-                
             )
         } else {
             this.setState({
-                textMessage: "Player 1 (Yellow) is playing"
+                textMessage: "Player 1 is playing"
             })
             return (
                 player1 
@@ -153,10 +151,11 @@ class Game extends Component {
 
         // Check status on the game board
         let result = this.checkVictory(board);
+
         if (result === this.state.player1) {
-            this.setState({ board, gameOver: true, textMessage: "Player 1 (Yellow) is victorious!" });
+            this.setState({ board, gameOver: true, textMessage: "Player 1 is victorious!"});
         } else if (result === this.state.player2) {
-            this.setState({ board, gameOver: true, textMessage: "Player 2 (Red) is victorious!" });
+            this.setState({ board, gameOver: true, textMessage: "Player 2 is victorious!" });
         } else if (result === 'draw') {
             this.setState({ board, gameOver: true, textMessage: "Noone won its a draw click New game to play again." });
         } else {
@@ -218,6 +217,6 @@ const Square = ({ row, play}) => {
         </td>
         </>
     );
-    };
+    }
 
-export default Game
+    export default Game
