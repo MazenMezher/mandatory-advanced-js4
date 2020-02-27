@@ -11,6 +11,8 @@ import React, { Component } from 'react'
         board: [],
         gameOver: false,
         textMessage: "",
+
+        display: "none",
         };
         
         // Bind play function to App component
@@ -30,7 +32,8 @@ import React, { Component } from 'react'
         board,
         activePlayer: this.state.player1,
         gameOver: false,
-        textMessage: "Player 1 starts",
+        textMessage: "Player 1 (Yellow) starts",
+        display: "none",
         });
     }
     
@@ -39,14 +42,14 @@ import React, { Component } from 'react'
 
         if(activePlayer === player1){
             this.setState({
-                textMessage: "Player 2 is playing"
+                textMessage: "Player 2 (Red) is playing"
             })
             return (
                 player2
             )
         } else {
             this.setState({
-                textMessage: "Player 1 is playing"
+                textMessage: "Player 1 (Yellow) is playing"
             })
             return (
                 player1 
@@ -153,11 +156,11 @@ import React, { Component } from 'react'
         let result = this.checkVictory(board);
 
         if (result === this.state.player1) {
-            this.setState({ board, gameOver: true, textMessage: "Player 1 is victorious!"});
+            this.setState({ board, gameOver: true, textMessage: "Player 1 (Yellow) is victorious!", display: "block"});
         } else if (result === this.state.player2) {
-            this.setState({ board, gameOver: true, textMessage: "Player 2 is victorious!" });
+            this.setState({ board, gameOver: true, textMessage: "Player 2 (Red) is victorious!", display: "block"});
         } else if (result === 'draw') {
-            this.setState({ board, gameOver: true, textMessage: "Noone won its a draw click New game to play again." });
+            this.setState({ board, gameOver: true, textMessage: "Noone won its a draw click New game to play again.", display: "block" });
         } else {
             this.setState({ board, activePlayer: this.altPlayer() });
         }
@@ -171,12 +174,14 @@ import React, { Component } from 'react'
     }
     
     render() {
+        const { textMessage, display } = this.state
+    
         return (
         <div className={"bigBackground"}>            
             <div className={"gameTitle"}>
                 <h1 className={"title1"}>Connect-</h1><h1 className={"title2"}>Four</h1><h1 className={"title3"}>-Game</h1>
             </div>
-                <p className="message">{this.state.textMessage}</p>
+                <p className="message">{textMessage}</p>
             <table>
             <thead>
             </thead>
@@ -185,7 +190,7 @@ import React, { Component } from 'react'
                 
             </tbody>
             </table>
-            <div className="button" onClick={() => {this.cleanBoard()}}>New Game</div>
+            <div className="button" onClick={() => {this.cleanBoard()}} style={{display}}>New Game</div>
     
         </div>
         );

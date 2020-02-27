@@ -1,7 +1,6 @@
 .cell{
   height: 70px;
   width: 70px;
-  border: 1px solid;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -9,6 +8,7 @@
   cursor: pointer;
   background-color: blue;
   opacity: 0.8;
+  border: 1px solid rgb(2, 2, 150);
   
 }
 .whiteCircle{
@@ -28,37 +28,40 @@ table{
 
 td {
   border: none;
+  border-collapse: collapse;
+  padding: 0;
+  margin: 0;
 }
 
-.button, .message, .gameTitle{
+.message, .gameTitle{
   display: flex;
   justify-content: center;
 }
 
 .message {
-  font-size: 40px;
-  color: Green;
+  font-size: 35px;
+  color: rgba(224, 4, 4, 0.973);
+  color: linear-gradient(90deg, rgba(210,3,8,1) 18%, rgba(203,255,0,1) 79%, rgba(208,14,4,1) 100%);
   font-style: italic;
 
-  text-shadow: 0 1px 0 rgb(30, 221, 24),
-               0 2px 0 rgb(30, 221, 24),
-               0 3px 0 rgb(30, 221, 24),
-               0 4px 0 #645f5f,
-               0 5px 0 rgb(102, 90, 90),
-               0 6px 1px rgba(0,0,0,.1),
-               0 0 5px rgba(0,0,0,.1),
-               0 1px 3px rgba(0,0,0,.3),
-               0 3px 5px rgba(0,0,0,.2),
-               0 5px 10px rgba(0,0,0,.25),
-               0 10px 10px rgba(0,0,0,.2),
-               0 20px 20px rgba(0,0,0,.15);
+  text-shadow: 0 1px 0 rgb(193, 235, 8),
+               0 2px 0 rgb(185, 221, 24),
+               0 3px 0 rgb(178, 221, 24),
+               0 4px 0 #d9dd04,
+               0 5px 0 rgb(240, 4, 4),
+               0 6px 1px rgba(224, 4, 4, 0.973),
+               0 0 5px rgba(224, 4, 4, 0.973),
+               0 1px 3px rgb(178, 221, 24),
+               0 3px 5px rgb(178, 221, 24),
+               0 5px 10px rgb(178, 221, 24),
+               0 10px 10px rgb(178, 221, 24),
+               0 20px 20px rgb(178, 221, 24);
 }
 
 .Yellow{
-  font-size: 40px;
+  
   color: yellow;
   font-style: italic;
-
   text-shadow: 0 1px 0 rgb(178, 221, 24),
                0 2px 0 rgb(178, 221, 24),
                0 3px 0 rgb(178, 221, 24),
@@ -74,7 +77,6 @@ td {
 }
 
 .Red{
-  font-size: 40px;
   color: red;
   font-style: italic;
 
@@ -94,16 +96,33 @@ td {
 
 .button:hover {
   cursor: pointer;
+
 }
 
 .button {
-  text-decoration: underline green;
+  text-decoration: underline rgba(224, 4, 4, 0.973);
+  font-size: 40px;
+  color: rgba(224, 4, 4, 0.973);
+  color: linear-gradient(90deg, rgba(210,3,8,1) 18%, rgba(203,255,0,1) 79%, rgba(208,14,4,1) 100%);
+  font-style: italic;
+
+  text-shadow: 0 1px 0 rgb(193, 235, 8),
+               0 2px 0 rgb(185, 221, 24),
+               0 3px 0 rgb(178, 221, 24),
+               0 4px 0 #d9dd04,
+               0 5px 0 rgb(240, 4, 4),
+               0 6px 1px rgba(224, 4, 4, 0.973),
+               0 0 5px rgba(224, 4, 4, 0.973),
+               0 1px 3px rgb(178, 221, 24),
+               0 3px 5px rgb(178, 221, 24),
+               0 5px 10px rgb(178, 221, 24),
+               0 10px 10px rgb(178, 221, 24),
+               0 20px 20px rgb(178, 221, 24);
+
+              margin-left: 700px;
 }
 
-.gameTitle {
-  color: green;
-  font-style: italic;
-}
+
 
 .redCircle {
   height: 60px;
@@ -123,16 +142,64 @@ td {
 
 
 .title1 {
-  color: green;
+  font-size: 40px;
+  color: rgba(224, 4, 4, 0.973);
+  color: linear-gradient(90deg, rgba(210,3,8,1) 18%, rgba(203,255,0,1) 79%, rgba(208,14,4,1) 100%);
+  font-style: italic;
+
+  text-shadow: 0 1px 0 rgb(193, 235, 8),
+               0 2px 0 rgb(185, 221, 24),
+               0 3px 0 rgb(178, 221, 24),
+               0 4px 0 #d9dd04,
+               0 5px 0 rgb(240, 4, 4),
+               0 6px 1px rgba(224, 4, 4, 0.973),
+               0 0 5px rgba(224, 4, 4, 0.973),
+               0 1px 3px rgb(178, 221, 24),
+               0 3px 5px rgb(178, 221, 24),
+               0 5px 10px rgb(178, 221, 24),
+               0 10px 10px rgb(178, 221, 24),
+               0 20px 20px rgb(178, 221, 24);
 
 }
 
 .title2{
-  color: blue;
+  font-size: 40px;
+  color: rgba(224, 4, 4, 0.973);
+  color: linear-gradient(90deg, rgba(210,3,8,1) 18%, rgba(203,255,0,1) 79%, rgba(208,14,4,1) 100%);
+  font-style: italic;
+
+  text-shadow: 0 1px 0 rgb(193, 235, 8),
+               0 2px 0 rgb(185, 221, 24),
+               0 3px 0 rgb(178, 221, 24),
+               0 4px 0 #d9dd04,
+               0 5px 0 rgb(240, 4, 4),
+               0 6px 1px rgba(224, 4, 4, 0.973),
+               0 0 5px rgba(224, 4, 4, 0.973),
+               0 1px 3px rgb(178, 221, 24),
+               0 3px 5px rgb(178, 221, 24),
+               0 5px 10px rgb(178, 221, 24),
+               0 10px 10px rgb(178, 221, 24),
+               0 20px 20px rgb(178, 221, 24);
 }
 
 .title3{
-  color: green;
+  font-size: 40px;
+  color: rgba(224, 4, 4, 0.973);
+  color: linear-gradient(90deg, rgba(210,3,8,1) 18%, rgba(203,255,0,1) 79%, rgba(208,14,4,1) 100%);
+  font-style: italic;
+
+  text-shadow: 0 1px 0 rgb(193, 235, 8),
+               0 2px 0 rgb(185, 221, 24),
+               0 3px 0 rgb(178, 221, 24),
+               0 4px 0 #d9dd04,
+               0 5px 0 rgb(240, 4, 4),
+               0 6px 1px rgba(224, 4, 4, 0.973),
+               0 0 5px rgba(224, 4, 4, 0.973),
+               0 1px 3px rgb(178, 221, 24),
+               0 3px 5px rgb(178, 221, 24),
+               0 5px 10px rgb(178, 221, 24),
+               0 10px 10px rgb(178, 221, 24),
+               0 20px 20px rgb(178, 221, 24);
 }
 
 .innerCircle {
@@ -144,15 +211,14 @@ td {
 }
 
 .bigBackground {
-  background-color: gray;
+  background: rgb(210,3,8);
+background: linear-gradient(90deg, rgba(210,3,8,1) 18%, rgba(255,235,0,0.692612079011292) 79%, rgba(208,14,4,1) 100%);
   height: 750px;
   width: 100%;
 }
 
-.green {
-  height: 60px;
-  width: 60px;
-  background-color: green;
-  border-radius: 100px;
-  transition: background-color 1s;
-}
+
+
+
+
+
